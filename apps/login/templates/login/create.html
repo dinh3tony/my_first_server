@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	{% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'login/css/bootstrap.css' %}">
+</head>
+<body>
+	<form action='clear'>
+		<h1>Welcome to your wall, {{ request.session.fname }}</h1>
+		<p>Your Id number is {{ request.session.id }}</p>
+		<p>Your logged in status is: {{ request.session.logged_in}}</p>
+		<input class="btn btn-primary" type="submit" value="Logout">
+	</form>
+</body>
+</html>
