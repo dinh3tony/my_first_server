@@ -43,12 +43,12 @@ def create(request):
 			request.session['fname'] = request.POST['fname']
 			pw_hash = bcrypt.hashpw(request.POST['pass'].encode(), bcrypt.gensalt())
 			User.objects.create(first_name=request.POST['fname'], last_name=request.POST['lname'], email=request.POST['email'], password=pw_hash)
-			a = User.objects.get()
+			a = User.objects.last()
 			request.session['name'] = a.first_name
 			request.session['id'] = a.id
 			print(pw_hash)
 
-			return HttpResponse(a)
+			return redirect('/login/show')
 
 def login(request):
 # 	# try: 
